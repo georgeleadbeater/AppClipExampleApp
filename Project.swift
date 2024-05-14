@@ -37,15 +37,17 @@ let project = Project(
             product: .appClip,
             bundleId: "io.tuist.AppClipExampleApp.Clip",
             deploymentTargets: .iOS(minDeploymentTarget),
-            entitlements: "AppClip.entitlements",
-            dependencies: [.target(name: "AppClip-widget")]
+            sources: ["AppClip/**"],
+            entitlements: "AppClip/AppClip.entitlements"
+//            dependencies: [.target(name: "AppClip-widget")]
         ),
         .target(
             name: "AppClip-widget",
             destinations: .iOS,
             product: .appExtension,
             bundleId: "io.tuist.AppClipExampleApp.Clip.widget",
-            deploymentTargets: .iOS(minDeploymentTarget)
+            deploymentTargets: .iOS(minDeploymentTarget),
+            sources: ["Widget/**"]
         )
     ]
 )
